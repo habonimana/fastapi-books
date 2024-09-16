@@ -1,0 +1,23 @@
+name: Github Action Test for Book-API
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.12.2
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.12.2
+      - name: Install dependencies
+        run: |
+          make install
+      - name: Lint with pylint
+        run: |
+          make link
+      - name: Format code
+        run: |
+          make format
