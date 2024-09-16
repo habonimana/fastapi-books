@@ -3,12 +3,12 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python -m pytest -vv books-api/main.py
+	python -m pytest -vv schemas.py
 
 format:
 	black *.py
 
 lint:
-	pylint --disable=R,C books-api/main.py
+	pylint --disable=R,C main.py
 
 all: install lint test
